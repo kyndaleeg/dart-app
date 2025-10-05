@@ -5,12 +5,7 @@ import FeedbackDisplay from "./FeedbackDisplay";
 
 export default function FinishQuestion({ currentScore, onCheck, onNext }) {
   const [userInput, setUserInput] = useState("");
-  const [feedback, setFeedback] = useState({
-    isCorrect: null,
-    userDarts: [],
-    correctDarts: [],
-    reason: "",
-  });
+  const [feedback, setFeedback] = useState(null);
 
   const normalizeInput = (input) => {
     return input
@@ -44,12 +39,7 @@ export default function FinishQuestion({ currentScore, onCheck, onNext }) {
 
   const handleNext = () => {
     setUserInput("");
-    setFeedback({
-      isCorrect: null,
-      userDarts: [],
-      correctDarts: [],
-      reason: "",
-    });
+    setFeedback(null);
     onNext();
   };
 
