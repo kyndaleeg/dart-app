@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# Dart Finish Trainer 🎯
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eine interaktive Web-Anwendung zum Lernen von Dart-Finish-Wegen mit verschiedenen Schwierigkeitsgraden und detaillierten Statistiken.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- ✅ Über 100 Dart-Finishes (2-170)
+- 🎮 Drei Schwierigkeitsgrade: Alle, Zwei-Dart, Drei-Dart
+- 📊 Detaillierte Statistiken nach Score-Bereich und Dart-Anzahl
+- 💡 Sofortiges Feedback mit Erklärungen
+- 📱 Responsive Design für Mobile und Desktop
+- 🎨 Modernes UI mit Tailwind CSS
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Voraussetzungen
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (Version 14 oder höher)
+- npm oder yarn
 
-### `npm test`
+### Schritt-für-Schritt Anleitung
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Projekt-Ordner erstellen:**
+```bash
+mkdir dart-finish-trainer
+cd dart-finish-trainer
+```
 
-### `npm run build`
+2. **Dateien erstellen:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Erstelle folgende Ordnerstruktur:
+```
+dart-finish-trainer/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   └── index.js
+├── package.json
+└── README.md
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Dependencies installieren:**
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **App starten:**
+```bash
+npm start
+```
 
-### `npm run eject`
+Die App öffnet sich automatisch unter `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Option 1: Netlify (Empfohlen)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Erstelle ein GitHub-Repository und pushe den Code
+2. Gehe zu [netlify.com](https://netlify.com)
+3. Klicke auf "Add new site" → "Import from Git"
+4. Verbinde dein GitHub-Repository
+5. Build-Settings:
+   - Build command: `npm run build`
+   - Publish directory: `build`
+6. Klicke auf "Deploy site"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Deine App ist nun unter `https://deinname.netlify.app` erreichbar!
 
-## Learn More
+### Option 2: Vercel
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Erstelle ein GitHub-Repository und pushe den Code
+2. Gehe zu [vercel.com](https://vercel.com)
+3. Klicke auf "New Project"
+4. Importiere dein GitHub-Repository
+5. Vercel erkennt automatisch die React-App
+6. Klicke auf "Deploy"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Option 3: GitHub Pages
 
-### Code Splitting
+1. Installiere gh-pages:
+```bash
+npm install --save-dev gh-pages
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Füge in `package.json` hinzu:
+```json
+"homepage": "https://deinusername.github.io/dart-finish-trainer",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+```
 
-### Analyzing the Bundle Size
+3. Deploy:
+```bash
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Production Build
 
-### Making a Progressive Web App
+Für manuelles Deployment:
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Das erstellt einen `build/` Ordner mit optimierten Dateien, die du auf jedem Webserver hosten kannst.
 
-### Advanced Configuration
+## Verwendung
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. **Schwierigkeitsgrad wählen:** Wähle zwischen allen Finishes, Zwei-Dart oder Drei-Dart
+2. **Finish eingeben:** Gib deine Lösung ein (z.B. `T20, T20, D20`)
+3. **Prüfen:** Klicke auf "Prüfen" oder drücke Enter
+4. **Feedback erhalten:** Sieh sofort ob richtig/falsch mit Erklärung
+5. **Statistiken ansehen:** Klicke auf "Statistiken" für detaillierte Auswertung
 
-### Deployment
+### Eingabeformat
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **T** = Triple (z.B. T20)
+- **D** = Double (z.B. D20)
+- **S** = Single (z.B. S20)
+- **Bull** = Bullseye (50 Punkte)
 
-### `npm run build` fails to minify
+Beispiele:
+- `T20, D20` (für 100)
+- `T20, T20, D20` (für 160)
+- `D16` (für 32)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technologie-Stack
+
+- **React 18** - UI Framework
+- **Tailwind CSS** - Styling (via CDN)
+- **Lucide React** - Icons
+- **React Scripts** - Build-Tools
+
+## Browser-Support
+
+- Chrome (neueste Version)
+- Firefox (neueste Version)
+- Safari (neueste Version)
+- Edge (neueste Version)
+- Mobile Browser (iOS Safari, Chrome Android)
+
+## Lizenz
+
+MIT License - Frei verwendbar für private und kommerzielle Zwecke
+
+## Support
+
+Bei Fragen oder Problemen erstelle ein Issue im Repository.
+
+---
+
+Viel Erfolg beim Dart-Training! 🎯🎉
