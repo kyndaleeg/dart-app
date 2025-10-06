@@ -1118,10 +1118,37 @@ export const finishWays = {
       },
     ],
   },
+  39: {
+    darts: ["S7", "D16"],
+    reason: "Standard",
+    dartCount: 2,
+    alternatives: [
+      {
+        darts: ["S19", "D10"],
+        reason:
+          "Wer sich etwas unsicher ist, zielt zwischen S7 und S19 und erhält sicher ein Double",
+        dartCount: 2,
+      },
+    ],
+  },
   38: {
     darts: ["D19"],
-    reason: "Ein-Dart-Finish!",
+    reason: "In der Regel sollte man hier direkt die D19 versuchen zu treffen",
     dartCount: 1,
+    alternatives: [
+      { darts: ["S6", "D16"], reason: "Alternative", dartCount: 2 },
+      {
+        darts: ["S10", "D14"],
+        reason:
+          "Zielt man mit dem ersten Dart zwischen die S10 und die S6 kann man sich allerdings auch ein besseres Double als Alternative stellen",
+        dartCount: 2,
+      },
+    ],
+  },
+  37: {
+    darts: ["S5", "D16"],
+    reason: "Via 16",
+    dartCount: 2,
     alternatives: [],
   },
   36: {
@@ -1130,19 +1157,51 @@ export const finishWays = {
     dartCount: 1,
     alternatives: [],
   },
+  35: {
+    darts: ["S3", "D16"],
+    reason: "Beide Nachbarfelder der 3 lassen auch Doublefelder Rest",
+    dartCount: 2,
+    alternatives: [],
+  },
   34: {
     darts: ["D17"],
     reason: "Ein-Dart-Finish!",
     dartCount: 1,
     alternatives: [],
   },
+  33: {
+    darts: ["S1", "D16"],
+    reason: "S1 D16 lässt ein besseres Double",
+    dartCount: 2,
+    alternatives: [
+      {
+        darts: ["S17", "D8"],
+        reason:
+          "Bei S17 D8 hätte man auch beim Treffen der S3 mit dem ersten Dart ein Finish",
+        dartCount: 2,
+      },
+    ],
+  },
   32: {
     darts: ["D16"],
-    reason: "Klassisches D16",
+    reason: "Diese Restpunktzahl wünscht sich jeder Dartspieler",
     dartCount: 1,
     alternatives: [
       { darts: ["D8", "D8"], reason: "Zwei Doubles", dartCount: 2 },
       { darts: ["S16", "D8"], reason: "Über Single 16", dartCount: 2 },
+    ],
+  },
+  31: {
+    darts: ["S15", "D8"],
+    reason: "S15 D8 ist der Standardweg",
+    dartCount: 2,
+    alternatives: [
+      {
+        darts: ["S19", "D6"],
+        reason:
+          "S19 D6 hat allerdings den Vorteil, dass beide benachbarten Felder der 19 (7 und 3) jeweils ebenfalls ein gutes Doublefeld lassen, während die Nachbarfelder der S15 eine ungerade Zahl Rest lassen",
+        dartCount: 2,
+      },
     ],
   },
   30: {
@@ -1151,16 +1210,42 @@ export const finishWays = {
     dartCount: 1,
     alternatives: [],
   },
+  29: {
+    darts: ["S13", "D8"],
+    reason: "Standard",
+    dartCount: 2,
+    alternatives: [],
+  },
   28: {
     darts: ["D14"],
     reason: "Ein-Dart-Finish!",
     dartCount: 1,
     alternatives: [],
   },
+  27: {
+    darts: ["S11", "D8"],
+    reason: "Profis spielen hier über S11 D8",
+    dartCount: 2,
+    alternatives: [
+      { darts: ["S7", "D10"], reason: "Alternative", dartCount: 2 },
+      {
+        darts: ["S19", "D4"],
+        reason:
+          "Für unerfahrenere Spieler kann es sinnvoller sein zwischen die S7 und S19 zu zielen. Egal welches der beiden Felder man trifft, man erhält jeweils ein vernünftiges Double",
+        dartCount: 2,
+      },
+    ],
+  },
   26: {
     darts: ["D13"],
     reason: "Ein-Dart-Finish!",
     dartCount: 1,
+    alternatives: [],
+  },
+  25: {
+    darts: ["S9", "D8"],
+    reason: "Standard",
+    dartCount: 2,
     alternatives: [],
   },
   24: {
@@ -1169,11 +1254,30 @@ export const finishWays = {
     dartCount: 1,
     alternatives: [],
   },
+  23: {
+    darts: ["S7", "D8"],
+    reason: "Standard",
+    dartCount: 2,
+    alternatives: [],
+  },
   22: {
     darts: ["D11"],
     reason: "Ein-Dart-Finish!",
     dartCount: 1,
     alternatives: [],
+  },
+  21: {
+    darts: ["S5", "D8"],
+    reason: "Standard",
+    dartCount: 2,
+    alternatives: [
+      {
+        darts: ["S13", "D4"],
+        reason:
+          "Auch hier gilt das gleiche wie bei 17 und 19 Rest. Trifft man statt der S5 die S20, hat man sich überworfen",
+        dartCount: 2,
+      },
+    ],
   },
   20: {
     darts: ["D10"],
@@ -1183,11 +1287,37 @@ export const finishWays = {
       { darts: ["S4", "D8"], reason: "Sicherer über Single", dartCount: 2 },
     ],
   },
+  19: {
+    darts: ["S3", "D8"],
+    reason: "Standard",
+    dartCount: 2,
+    alternatives: [
+      {
+        darts: ["S11", "D4"],
+        reason:
+          "Hier gilt das gleiche wie bei 17 Rest. Beim Wurf auf die S11 kann man sich bei keinem der Nachbarfelder überwerfen, bei der S3 schon",
+        dartCount: 2,
+      },
+    ],
+  },
   18: {
     darts: ["D9"],
     reason: "Ein-Dart-Finish!",
     dartCount: 1,
     alternatives: [],
+  },
+  17: {
+    darts: ["S1", "D8"],
+    reason: "Prinzipiell ist es besser sich die D8 als die D4 zu stellen",
+    dartCount: 2,
+    alternatives: [
+      {
+        darts: ["S9", "D4"],
+        reason:
+          "Hier kann es allerdings sinnvoller sein S9 D4 zu spielen. Trifft man statt der S9 eines der benachbarten Felder (12 oder 14), so kann man immernoch finishen. Verfehlt man allerdings die S1, so hat man sich bereits überworfen",
+        dartCount: 2,
+      },
+    ],
   },
   16: {
     darts: ["D8"],
@@ -1195,10 +1325,31 @@ export const finishWays = {
     dartCount: 1,
     alternatives: [],
   },
+  15: {
+    darts: ["S7", "D4"],
+    reason:
+      "Der sinnvollste Weg, da man sich so ein möglichst großes Vielfaches von 2 als Double stellt",
+    dartCount: 2,
+    alternatives: [],
+  },
   14: {
     darts: ["D7"],
-    reason: "Ein-Dart-Finish!",
+    reason: "Standard",
     dartCount: 1,
+    alternatives: [
+      {
+        darts: ["S6", "D4"],
+        reason:
+          "Wer die D7 überhaupt nicht mag, kann bei einem Wurf Richtung S6 auf D4 umbauen. Verfehlt man die S6 und trifft die S10 hat man ebenfalls ein Double. Trotzdem sollte man in der Regel direkt auf die D7 werfen",
+        dartCount: 2,
+      },
+    ],
+  },
+  13: {
+    darts: ["S5", "D4"],
+    reason:
+      "Der sinnvollste Weg, da man sich so ein möglichst großes Vielfaches von 2 als Double stellt",
+    dartCount: 2,
     alternatives: [],
   },
   12: {
@@ -1207,10 +1358,26 @@ export const finishWays = {
     dartCount: 1,
     alternatives: [],
   },
+  11: {
+    darts: ["S3", "D4"],
+    reason:
+      "Der sinnvollste Weg, da man sich so ein möglichst großes Vielfaches von 2 als Double stellt",
+    dartCount: 2,
+    alternatives: [],
+  },
   10: {
     darts: ["D5"],
-    reason: "Ein-Dart-Finish!",
+    reason: "In der Regel sollte hier direkt auf die D5 gespielt werden",
     dartCount: 1,
+    alternatives: [
+      { darts: ["S2", "D4"], reason: "Alternative", dartCount: 2 },
+    ],
+  },
+  9: {
+    darts: ["S1", "D4"],
+    reason:
+      "Der sinnvollste Weg, da man sich so ein möglichst großes Vielfaches von 2 als Double stellt",
+    dartCount: 2,
     alternatives: [],
   },
   8: {
@@ -1219,16 +1386,42 @@ export const finishWays = {
     dartCount: 1,
     alternatives: [],
   },
+  7: {
+    darts: ["S3", "D2"],
+    reason:
+      "Auf keinen Fall S1 D3 spielen, da D2 Rest deutlich besser ist als D3 Rest",
+    dartCount: 2,
+    alternatives: [],
+  },
   6: {
     darts: ["D3"],
-    reason: "Ein-Dart-Finish!",
+    reason: "Standard",
     dartCount: 1,
+    alternatives: [
+      {
+        darts: ["S2", "D2"],
+        reason:
+          'Die D3 ist ein sehr unbeliebtes Double, weshalb viele es bevorzugen "umzubauen" und über die D2 zu finishen',
+        dartCount: 2,
+      },
+    ],
+  },
+  5: {
+    darts: ["S1", "D2"],
+    reason: "Die einzige sinnvolle Möglichkeit 5 zu finishen",
+    dartCount: 2,
     alternatives: [],
   },
   4: {
     darts: ["D2"],
     reason: "Ein-Dart-Finish!",
     dartCount: 1,
+    alternatives: [],
+  },
+  3: {
+    darts: ["S1", "D1"],
+    reason: "Die einzige Möglichkeit 3 zu finishen",
+    dartCount: 2,
     alternatives: [],
   },
   2: {
