@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RotateCcw } from "lucide-react";
-import { finishWays } from "../../utils/finishWays";
+import { finishWays, checkFinishAnswer } from "../../utils/finishWays";
 import FeedbackDisplay from "./FeedbackDisplay";
 
 export default function FinishQuestion({ currentScore, onCheck, onNext }) {
   const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState(null);
+
+  useEffect(() => {
+    setUserInput("");
+    setFeedback(null);
+  }, [currentScore]);
 
   const normalizeInput = (input) => {
     return input
@@ -17,24 +22,22 @@ export default function FinishQuestion({ currentScore, onCheck, onNext }) {
   };
 
   const handleCheck = () => {
-    if (!userInput.trim()) return;
+    if (!userInput.trim() || !currentScore || !finishWays[currentScore]) return;
 
     const userDarts = normalizeInput(userInput);
-    const correctDarts = finishWays[currentScore].darts;
-    const reason = finishWays[currentScore].reason;
-
-    const isCorrect =
-      userDarts.length === correctDarts.length &&
-      userDarts.every((dart, idx) => dart === correctDarts[idx]);
+    const result = checkFinishAnswer(currentScore, userDarts);
 
     setFeedback({
-      isCorrect,
-      userDarts,
-      correctDarts,
-      reason,
+      isCorrect: result.found,
+      isOptimal: result.isOptimal,
+      userDarts: userDarts,
+      userReason: result.userReason,
+      correctDarts: result.correctDarts,
+      reason: result.reason,
+      alternatives: result.alternatives || [],
     });
 
-    onCheck(userDarts, isCorrect);
+    onCheck(userDarts, result.found);
   };
 
   const handleNext = () => {
@@ -43,7 +46,15 @@ export default function FinishQuestion({ currentScore, onCheck, onNext }) {
     onNext();
   };
 
-  if (!currentScore) return null;
+  if (!currentScore || !finishWays[currentScore]) {
+    return (
+      <div className="bg-white rounded-xl shadow-2xl p-8">
+        <div className="text-center">
+          <p className="text-gray-600">Lade Frage...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white rounded-xl shadow-2xl p-8">
@@ -65,7 +76,7 @@ export default function FinishQuestion({ currentScore, onCheck, onNext }) {
           onKeyPress={(e) => e.key === "Enter" && !feedback && handleCheck()}
           placeholder="z.B. T20, S20, D20"
           disabled={feedback !== null}
-          className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none disabled:bg-gray-100"
+          className="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none disabled:bg-gray-100 text-gray-900"
         />
       </div>
 
